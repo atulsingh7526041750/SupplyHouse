@@ -3,11 +3,10 @@ import React, { useContext, useState } from 'react';
 // import { addSpecialHours } from './api';
 import { addSpecialHours } from '../services/api'; // Assume this service exists for API calls
 import { Button, DatePicker, Form, Input, TimePicker } from 'antd';
-import dayjs from 'dayjs';
 import { FormContext } from './FormContext';
 
 const AddSpecialHours = () => {
-    // const form=Form.useForm();
+     const [form]=Form.useForm();
   const [formData, setFormData] = useState({
     date: '',
     reason: '',
@@ -26,7 +25,7 @@ const [isFormVisible,setIsFormVisible]=useContext(FormContext);
     values.openingTime=openingTimeFormated;
     values.closingTime=closingTimeFormated;
     setIsFormVisible(false)
-    addSpecialHours(values).then(() => { alert('Special hours added successfully!')});
+    addSpecialHours(values).then(() => { form.resetFields(); alert('Special hours added successfully!')});
   
   };
   const convertTime=(isoTime)=>{
@@ -44,7 +43,7 @@ return timeString;
     <div className="add-special-hours-form">
       <h2>Add Special Hours</h2>
       <Form onFinish={handleSubmit}
-    //   form={form}
+      form={form}
       >
         <Form.Item
         onCha
