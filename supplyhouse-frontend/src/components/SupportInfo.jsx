@@ -158,7 +158,7 @@ const SupportInfo = () => {
 
 
             {/* Show the Add Special Hours Form */}
-            {showAddSpecialHours && <AddSpecialHours onAddSpecialHours={handleAddSpecialHours} />}
+            {/* {showAddSpecialHours && <AddSpecialHours onAddSpecialHours={handleAddSpecialHours} />} */}
         </div>
     );
 };
